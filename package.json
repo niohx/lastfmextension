@@ -1,0 +1,19 @@
+{
+  "name": "myextension",
+  "version": "0.0.1",
+  "description": "test extension ",
+  "scripts": {
+    "dev": "webextension-toolbox dev",
+    "build": "webextension-toolbox build"
+  },
+  "devDependencies": {
+    "webextension-toolbox": "latest"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bower": "^1.8.4",
+    "last-fm": "^5.2.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
+  }
+}
