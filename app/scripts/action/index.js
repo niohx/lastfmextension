@@ -1,1 +1,1 @@
-export const ''
+export const 'FETCH_STATUS_OK' = FETCH_STATUS_OK

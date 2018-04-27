@@ -1,4 +1,4 @@
-
+import LastFM from 'last-fm'
 
 browser.tabs.query({
     currentWindow:true,
@@ -13,4 +13,13 @@ browser.tabs.query({
         document.getElementById('title').innerText = `タイトルは${title}`
         document.getElementById('str').innerText = `selection is ${str}`
     })
+})
+
+
+
+const auth = new LastFM('6365215872671c325787a220ef38ae1c')
+
+auth.trackSearch({q:'the greatest'},(err,data)=>{
+    if(err)console.error(err)
+    else console.log(data.result[0])
 })
