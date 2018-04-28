@@ -7,19 +7,32 @@ browser.tabs.query({
     browser.tabs.sendMessage(tab[0].id, {
         text: ''
     }).then(function (response) {
-        title = response.title
-        str = response.str
+        const title = response.title
+        const str = response.str
+        document.getElementById('title').innerText = `選んだアーティストは${str}`
+        searchSimilarArtist(str)
 
-        document.getElementById('title').innerText = `タイトルは${title}`
-        document.getElementById('str').innerText = `selection is ${str}`
-    })
+        }
+
+    )
 })
 
-
-
-const auth = new LastFM('6365215872671c325787a220ef38ae1c')
-
-auth.trackSearch({q:'the greatest'},(err,data)=>{
-    if(err)console.error(err)
-    else console.log(data.result[0])
-})
+function searchSimilarArtist(artist){
+  //authentificate
+  const auth = new LastFM('6365215872671c325787a220ef38ae1c')
+  console.log(artist)
+  //return artist similar to given name
+  const data = {isFound:false,result:"ea"}
+  auth.artistSimilar({name:artist},(err,data)=>{
+    if(err){
+      data.isFound=false
+      data.result=err
+      console.log(data)
+    }
+    else {
+      data.isFound = true
+      data.result = data
+      console.log(data)
+      document.getElementById('artist').innerHTML = `<div>${data.artist[0].name}</div>`
+      }
+  })}
