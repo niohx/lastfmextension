@@ -1,10 +1,10 @@
-# myextension
+# lastfmextension
 
-test extension 
+search similar artist
 
 ## Install
 
-	$ npm install
+
 
 ## Development
 
@@ -22,7 +22,7 @@ test extension
 
 ## Environment
 
-The build tool also defines a variable named `process.env.NODE_ENV` in your scripts. 
+The build tool also defines a variable named `process.env.NODE_ENV` in your scripts.
 
 ## Docs
 
