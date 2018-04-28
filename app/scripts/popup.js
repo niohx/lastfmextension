@@ -9,7 +9,7 @@ browser.tabs.query({
     }).then(function (response) {
         const title = response.title
         const str = response.str
-        document.getElementById('title').innerText = `選んだアーティストは${str}`
+        document.getElementById('title').innerText = `you have selected ${str}`
         searchSimilarArtist(str)
 
         }
@@ -33,6 +33,11 @@ function searchSimilarArtist(artist){
       data.isFound = true
       data.result = data
       console.log(data)
-      document.getElementById('artist').innerHTML = `<div>${data.artist[0].name}</div>`
+      let html = ""
+      for(var i = 0; i<10; i++){
+        html += `<br /><div>${data.artist[i].name}</div>`
+      }
+      console.log(html)
+      document.getElementById('artist').innerHTML = html
       }
   })}
