@@ -1,6 +1,8 @@
 import LastFM from 'last-fm'
-import {subscribe,createStore} from 'redux'
-
+import {
+    subscribe,
+    createStore
+} from 'redux'
 
 browser.tabs.query({
     currentWindow: true,
@@ -9,26 +11,25 @@ browser.tabs.query({
     browser.tabs.sendMessage(tab[0].id, {
         text: ''
     }).then(function (response) {
-            const str = response.str
-            document.getElementById('title').innerText = `you have selected ${str}`
-            searchSimilarArtist(str)
+        const str = response.str
+        document.getElementById('title').innerText = `you have selected ${str}`
+        searchSimilarArtist(str)
 
-        }
-    )
+    })
 })
 
 
 
 
-async function searchSimilarArtist(artist) {
+function searchSimilarArtist(artist) {
     //authentificate
     const auth = new LastFM('6365215872671c325787a220ef38ae1c')
     // for debug:console.log(artist)
     //return artist similar to given name
 
-    await auth.artistSimilar({
+    auth.artistSimilar({
         name: artist,
-        limit:20
+        limit: 20
     }, (err, data) => {
         if (err) {
             console.error(err)
