@@ -18,8 +18,6 @@ browser.tabs.query({
 })
 
 
-
-
 async function searchSimilarArtist(artist) {
     //authentificate
     const auth = new LastFM('6365215872671c325787a220ef38ae1c')
