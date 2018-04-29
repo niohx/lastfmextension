@@ -1,29 +1,49 @@
 # lastfmextension
 
-search similar artist
+search similar artist　via [last.fm](https://www.last.fm)
 
 ## Install
 
+you can install via [Firefox addon-store](https://addons.mozilla.org/en-US/firefox/addon/search-similar-artist/)
 
 
-## Development
 
-    npm run dev chrome
-    npm run dev firefox
-    npm run dev opera
-    npm run dev edge
 
-## Build
 
-    npm run build chrome
-    npm run build firefox
-    npm run build opera
-    npm run build edge
+## メモ用
 
-## Environment
+最終的に必要なStateの姿はこんな感じじゃなかろうか
 
-The build tool also defines a variable named `process.env.NODE_ENV` in your scripts.
+```
+{
+  selectedArtist:"you",
+  asked:true/false
+  isFetching:true/false,
+  
+  similarArtist[
+  { name:"sia"
+    img:"https://~"
+  },
+  { name:"~"
+    img:""
+    },
+    ...
+  ]
+}
 
-## Docs
+```
 
-* [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
+## action
+
+どういう種類のActionが必要になるか。
+
+```
+
+//問い合わせに必要なAction
+'REQUEST_START'
+'REQUEST_PENDING'
+'REQUEST_FETCHED'
+
+
+
+```

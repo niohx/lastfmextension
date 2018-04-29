@@ -1,4 +1,6 @@
 import LastFM from 'last-fm'
+import {subscribe,createStore} from 'redux'
+
 
 browser.tabs.query({
     currentWindow: true,
@@ -7,52 +9,43 @@ browser.tabs.query({
     browser.tabs.sendMessage(tab[0].id, {
         text: ''
     }).then(function (response) {
-            const title = response.title
             const str = response.str
             document.getElementById('title').innerText = `you have selected ${str}`
             searchSimilarArtist(str)
 
-        }.then(data => {
-            let html = ""
-            for (var i = 0; i < 10; i++) {
-                html += `<br /><div>${data.artist[i].name}</div>`
-            }
-            console.log(html)
-            document.getElementById('artist').innerHTML = html
-        })
-
+        }
     )
 })
 
-function searchSimilarArtist(artist) {
+
+
+
+async function searchSimilarArtist(artist) {
     //authentificate
     const auth = new LastFM('6365215872671c325787a220ef38ae1c')
     // for debug:console.log(artist)
     //return artist similar to given name
-    const data = {
-        isFound: false,
-        result: "ea"
-    }
-    auth.artistSimilar({
-        name: artist
+
+    await auth.artistSimilar({
+        name: artist,
+        limit:20
     }, (err, data) => {
         if (err) {
-            data.isFound = false
-            data.result = err
-            return data
+            console.error(err)
         } else {
             data.isFound = true
-            data.result = data
-            return data
-            //for debug:console.log(data)
-            /*let html = ""
+            console.log(data)
+            console.log(data.artist[0].image[1]['#text'])
+            let html = ""
             for (var i = 0; i < 10; i++) {
-                html += `<br /><div>${data.artist[i].name}</div>`
+                html += `<br /><div><img src = ${data.artist[i].image[1]['#text']}>${data.artist[i].name}</div>`
             }
             console.log(html)
-            document.getElementById('artist').innerHTML = html */
+            document.getElementById('artist').innerHTML = html
         }
-        
-        return resolve(data)
+
+
     })
+
+
 }
