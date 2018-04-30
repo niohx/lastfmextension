@@ -1,0 +1,5 @@
+export const 'FETCH_STATUS_SUCCESS' = FETCH_STATUS_OK
+export const 'FETCH_STATUS_FAILED' = FETCH_STATUS_FAILED
+export const 'REQUEST_POSTS' = REQUEST_POSTS
+
+export const 
