@@ -1,5 +1,5 @@
 {
-  "name": "myextension",
+  "name": "Search Similar Artist via Last.fm",
   "version": "0.0.1",
   "description": "test extension ",
   "scripts": {
@@ -13,6 +13,8 @@
     "axios": "^0.18.0",
     "bower": "^1.8.4",
     "last-fm": "^5.2.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   }

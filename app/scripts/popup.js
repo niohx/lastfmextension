@@ -1,3 +1,23 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+const initialState = {
+  artist:'unselected'
+}
+
+const reducer = (state,action) =>{
+  switch(action.type){
+    
+  }
+}
+
+ReactDOM.render(
+  <SimilarArtists />,
+  document.getElementById('app')
+)
+
 //background scriptにリクエストを送る。
 browser.runtime.sendMessage({text:''},function(response){
   document.getElementById('title').innerText = `you have selected ${response.artist}`
